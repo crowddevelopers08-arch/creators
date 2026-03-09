@@ -500,7 +500,6 @@ export default function SkinHeroSection() {
               </div>
             </div>
 
-            {/* ─── RIGHT: Form ─── */}
             <div className="lg:w-1/2 w-full">
               <div className="sh-card" id="consultation-form">
                 <h2 className="sh-card-title">
