@@ -1,6 +1,13 @@
 "use client";
 
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
+
+const BG_IMAGES = [
+  "/female-doctor.jpg",
+  "/doctor23.avif",
+  "/doctor22.avif",
+  "/contact.avif",
+];
 
 const TRUST_BADGES = [
   {
@@ -55,6 +62,14 @@ export default function SkinHeroSection() {
   const [skinConcern, setSkinConcern] = useState("");
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [bgIndex, setBgIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setBgIndex((i) => (i + 1) % BG_IMAGES.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
 
   const canSubmit = useMemo(() => {
     return (
@@ -107,10 +122,36 @@ export default function SkinHeroSection() {
 
         .sh-root { font-family: 'Outfit', sans-serif; }
 
+        @keyframes sh-kenburns {
+          0%   { transform: scale(1)    translateX(0px)   translateY(0px); }
+          33%  { transform: scale(1.06) translateX(-12px) translateY(-6px); }
+          66%  { transform: scale(1.1)  translateX(10px)  translateY(-10px); }
+          100% { transform: scale(1)    translateX(0px)   translateY(0px); }
+        }
+
         .sh-bg {
-          background: linear-gradient(145deg, #0c0c0c 0%, #110d1a 55%, #0c0c0c 100%);
           position: relative;
           overflow: hidden;
+        }
+
+        .sh-bg-img {
+          position: absolute;
+          inset: -4%;
+          background-size: cover;
+          background-position: center top;
+          background-repeat: no-repeat;
+          animation: sh-kenburns 18s ease-in-out infinite;
+          will-change: transform, opacity;
+          transition: opacity 1.5s ease-in-out;
+        }
+        .sh-bg-img.active { opacity: 1; }
+        .sh-bg-img.inactive { opacity: 0; }
+
+        .sh-bg-overlay {
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(145deg, rgba(10,10,10,0.88) 0%, rgba(17,13,26,0.82) 50%, rgba(10,10,10,0.92) 100%);
+          pointer-events: none;
         }
 
         .sh-grid-overlay {
@@ -369,6 +410,17 @@ export default function SkinHeroSection() {
       `}</style>
 
       <section  className="sh-root sh-bg min-h-screen flex items-center max-sm:pt-22 py-10 lg:pt-25">
+        {BG_IMAGES.map((src, i) => (
+          <div
+            key={src}
+            className={`sh-bg-img ${i === bgIndex ? "active" : "inactive"}`}
+            style={{
+              backgroundImage: `url('${src}')`,
+              animationDelay: `${i * -4.5}s`,
+            }}
+          />
+        ))}
+        <div className="sh-bg-overlay" />
         <div className="sh-grid-overlay" />
         <div className="sh-orb sh-orb-1" />
         <div className="sh-orb sh-orb-2" />
@@ -468,7 +520,7 @@ export default function SkinHeroSection() {
 
                 <form onSubmit={handleSubmit}>
                   {/* Name + Phone */}
-                  <div id="consultation" className="sh-field" style={{ display: "grid", gridTemplateColumns: "1fr ", gap: "12px", marginBottom: "14px" }}>
+                  <div className="sh-field" style={{ display: "grid", gridTemplateColumns: "1fr ", gap: "12px", marginBottom: "14px" }}>
                     <div style={{ marginBottom: 0 }}>
                       <label className="sh-label">Name</label>
                       <input
