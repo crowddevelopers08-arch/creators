@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 
 const REELS = [
   { id: "DTtoZAWk006" },
@@ -42,7 +42,15 @@ function ReelCard({ id }: { id: string }) {
 
 export default function VideoSection() {
   const [current, setCurrent] = useState(0);
+  const [isMobileView, setIsMobileView] = useState(false);
   const touchStartX = useRef<number | null>(null);
+
+  useEffect(() => {
+    const check = () => setIsMobileView(window.innerWidth <= 580);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
 
   // Desktop shows 3 at a time, mobile shows 1
   // Max index = total - visible
@@ -72,6 +80,7 @@ export default function VideoSection() {
   const desktopOffset = current * (100 / desktopVisible);
   // Mobile offset: each slide = 100%
   const mobileOffset = current * 100;
+  const offset = isMobileView ? mobileOffset : desktopOffset;
 
   return (
     <>
@@ -325,7 +334,7 @@ export default function VideoSection() {
           >
             <div
               className="vs-carousel-track"
-              style={{ transform: `translateX(-${desktopOffset}%)` }}
+              style={{ transform: `translateX(-${offset}%)` }}
             >
               {REELS.map((r) => (
                 <div key={r.id} className="vs-slide">
@@ -337,7 +346,7 @@ export default function VideoSection() {
 
           {/* ── Controls ── */}
           <div className="vs-controls">
-            <button className="vs-arrow" onClick={() => prev(false)} aria-label="Previous">
+            <button className="vs-arrow" onClick={() => prev(isMobileView)} aria-label="Previous">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
                 <path d="M15 18l-6-6 6-6" stroke="#333" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
@@ -348,7 +357,7 @@ export default function VideoSection() {
                 <button
                   key={i}
                   className={`vs-dot${i === current ? " active" : ""}`}
-                  onClick={() => setCurrent(i > maxDesktop ? maxDesktop : i)}
+                  onClick={() => setCurrent(isMobileView ? i : Math.min(i, maxDesktop))}
                   aria-label={`Go to reel ${i + 1}`}
                 />
               ))}
@@ -356,7 +365,7 @@ export default function VideoSection() {
 
             <span className="vs-counter">{current + 1} / {REELS.length}</span>
 
-            <button className="vs-arrow" onClick={() => next(false)} aria-label="Next">
+            <button className="vs-arrow" onClick={() => next(isMobileView)} aria-label="Next">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
                 <path d="M9 18l6-6-6-6" stroke="#333" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>

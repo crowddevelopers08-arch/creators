@@ -152,7 +152,7 @@ export default function SkinFAQSection() {
         .sfaq-cta:hover { box-shadow: 0 0 28px rgba(109,91,143,0.4); }
       `}</style>
 
-      <section className="sfaq-wrap bg-white max-sm:py-6 py-12 overflow-hidden">
+      <section id="faq" className="sfaq-wrap bg-white max-sm:py-6 py-12 overflow-hidden">
         <div className="max-w-6xl mx-auto px-6">
 
           {/* ── TITLE BLOCK ── */}

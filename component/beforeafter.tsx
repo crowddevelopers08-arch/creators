@@ -13,7 +13,7 @@ const CARDS = [
     tagColor: "#6d5b8f",
     tagBg: "rgba(109,91,143,0.12)",
     tagBorder: "rgba(109,91,143,0.3)",
-    image: "/ba1-after.jpg",
+    image: "/before5.jpg",
   },
   {
     id: 2,
@@ -24,7 +24,7 @@ const CARDS = [
     tagColor: "#34d399",
     tagBg: "rgba(52,211,153,0.1)",
     tagBorder: "rgba(52,211,153,0.3)",
-    image: "/ba2-after.jpg",
+    image: "/before1.jpg",
   },
   {
     id: 3,
@@ -35,7 +35,7 @@ const CARDS = [
     tagColor: "#22d3ee",
     tagBg: "rgba(34,211,238,0.1)",
     tagBorder: "rgba(34,211,238,0.3)",
-    image: "/ba3-after.jpg",
+    image: "/before2.webp",
   },
   {
     id: 4,
@@ -46,7 +46,7 @@ const CARDS = [
     tagColor: "#a78bfa",
     tagBg: "rgba(167,139,250,0.1)",
     tagBorder: "rgba(167,139,250,0.3)",
-    image: "/ba4-after.jpg",
+    image: "/before3.jpg",
   },
   {
     id: 5,
@@ -57,7 +57,7 @@ const CARDS = [
     tagColor: "#fb923c",
     tagBg: "rgba(251,146,60,0.1)",
     tagBorder: "rgba(251,146,60,0.3)",
-    image: "/ba5-after.jpg",
+    image: "/before4.jpg",
   },
 ];
 
@@ -123,7 +123,23 @@ export default function BeforeAfterSection() {
 
         @media (max-width: 860px) {
           .ba-side { display: none !important; }
-          .ba-center { width: 100% !important; max-width: 340px !important; }
+          .ba-center { width: 100% !important; max-width: 360px !important; }
+        }
+
+        @media (max-width: 580px) {
+          .ba-side { display: none !important; }
+          .ba-center {
+            width: calc(100vw - 48px) !important;
+            max-width: 100% !important;
+            height: 460px !important;
+          }
+          .ba-cards-container {
+            min-height: 460px !important;
+          }
+          .ba-title-block { margin-bottom: 24px !important; }
+          .ba-wrap { padding-top: 24px !important; padding-bottom: 24px !important; }
+          .ba-arrow-side { display: none !important; }
+          .ba-bottom-nav { display: flex !important; }
         }
       `}</style>
 
@@ -131,9 +147,7 @@ export default function BeforeAfterSection() {
         <div className="max-w-6xl mx-auto px-6">
 
           {/* ── TITLE BLOCK ── */}
-          <div className="text-center mb-16">
-
-            {/* Eyebrow row */}
+          <div className="ba-title-block text-center mb-16">
             <div className="flex items-center justify-center gap-4 max-sm:mb-3 mb-2">
               <div className="ba-eyebrow-line-l" />
               <span style={{ fontFamily:"Outfit,sans-serif", fontSize:"11px", fontWeight:600, letterSpacing:"3px", textTransform:"uppercase", color:"#6d5b8f" }}>
@@ -141,18 +155,12 @@ export default function BeforeAfterSection() {
               </span>
               <div className="ba-eyebrow-line-r" />
             </div>
-
-            {/* Main heading — black */}
-            <h2 style={{ fontFamily:"'Playfair Display',Georgia,serif", fontSize: "clamp(32px,5vw,48px)", fontWeight: 700,  color:"#111111", lineHeight:1.2, margin:"0 0 4px", letterSpacing:"-0.3px" }}>
+            <h2 style={{ fontFamily:"'Playfair Display',Georgia,serif", fontSize:"clamp(32px,5vw,48px)", fontWeight:700, color:"#111111", lineHeight:1.2, margin:"0 0 4px", letterSpacing:"-0.3px" }}>
               5 Treatments. One Goal
             </h2>
-
-            {/* Italic teal gradient */}
-            <h2 className="ba-italic-teal" style={{ fontSize: "clamp(32px,5vw,48px)", fontWeight: 700,  lineHeight:1.25, margin:"0 0 10px" }}>
+            <h2 className="ba-italic-teal" style={{ fontSize:"clamp(32px,5vw,48px)", fontWeight:700, lineHeight:1.25, margin:"0 0 10px" }}>
               Radiant, Confident Skin.
             </h2>
-
-            {/* Subtitle — muted black */}
             <p style={{ fontSize:"15px", color:"rgba(0,0,0,0.5)", maxWidth:"720px", margin:"0 auto", lineHeight:1.7, fontWeight:400 }}>
               Each treatment below is performed under the direct supervision of Dr. Sai at Creator Aesthetic Clinic, ECR - where medical precision meets aesthetic artistry
             </p>
@@ -166,7 +174,7 @@ export default function BeforeAfterSection() {
               <button
                 onClick={prev}
                 aria-label="Previous"
-                className="w-11 h-11 rounded-full flex items-center justify-center flex-shrink-0 cursor-pointer"
+                className="ba-arrow-side w-11 h-11 rounded-full flex items-center justify-center flex-shrink-0 cursor-pointer"
                 style={{ background:"rgba(0,0,0,0.05)", border:"1px solid rgba(0,0,0,0.12)", color:"#444", transition:"all 0.2s" }}
                 onMouseEnter={e => { e.currentTarget.style.background="rgba(109,91,143,0.08)"; e.currentTarget.style.borderColor="rgba(109,91,143,0.4)"; e.currentTarget.style.color="#6d5b8f"; }}
                 onMouseLeave={e => { e.currentTarget.style.background="rgba(0,0,0,0.05)"; e.currentTarget.style.borderColor="rgba(0,0,0,0.12)"; e.currentTarget.style.color="#444"; }}
@@ -177,7 +185,7 @@ export default function BeforeAfterSection() {
               </button>
 
               {/* Cards */}
-              <div className="flex-1 flex items-center justify-center gap-5" style={{ perspective:"1200px", minHeight:"420px" }}>
+              <div className="ba-cards-container flex-1 flex items-center justify-center gap-5" style={{ perspective:"1200px", minHeight:"420px", width:"100%" }}>
                 {visible.map((cardIdx, position) => {
                   const card = CARDS[cardIdx];
                   const isCenter = position === 1;
@@ -210,7 +218,6 @@ export default function BeforeAfterSection() {
 
                       {/* Body */}
                       <div className="absolute bottom-0 left-0 right-0 p-6">
-                        {/* Tag */}
                         <div
                           className="inline-flex items-center gap-1.5 text-[10px] font-bold tracking-wide uppercase px-2.5 py-1 rounded-full border mb-2.5"
                           style={{ color:card.tagColor, background:card.tagBg, borderColor:card.tagBorder }}
@@ -218,18 +225,12 @@ export default function BeforeAfterSection() {
                           <span style={{ width:5, height:5, background:card.tagColor, borderRadius:"50%", display:"inline-block", flexShrink:0 }} />
                           {card.tag}
                         </div>
-
-                        {/* Name */}
                         <div className="text-xl font-bold text-white mb-2 tracking-tight">{card.name}</div>
-
-                        {/* Desc — center only */}
                         {isCenter && (
                           <p className="ba-line-clamp text-[12.5px] leading-relaxed mb-3" style={{ color:"rgba(255,255,255,0.6)" }}>
                             {card.desc}
                           </p>
                         )}
-
-                        {/* Stat */}
                         <div
                           className="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-lg"
                           style={{ background:"rgba(255,255,255,0.08)", border:"1px solid rgba(255,255,255,0.12)", color:"rgba(255,255,255,0.85)" }}
@@ -240,6 +241,7 @@ export default function BeforeAfterSection() {
                           {card.stat}
                         </div>
                       </div>
+
                     </div>
                   );
                 })}
@@ -249,7 +251,7 @@ export default function BeforeAfterSection() {
               <button
                 onClick={next}
                 aria-label="Next"
-                className="w-11 h-11 rounded-full flex items-center justify-center flex-shrink-0 cursor-pointer"
+                className="ba-arrow-side w-11 h-11 rounded-full flex items-center justify-center flex-shrink-0 cursor-pointer"
                 style={{ background:"rgba(0,0,0,0.05)", border:"1px solid rgba(0,0,0,0.12)", color:"#444", transition:"all 0.2s" }}
                 onMouseEnter={e => { e.currentTarget.style.background="rgba(109,91,143,0.08)"; e.currentTarget.style.borderColor="rgba(109,91,143,0.4)"; e.currentTarget.style.color="#6d5b8f"; }}
                 onMouseLeave={e => { e.currentTarget.style.background="rgba(0,0,0,0.05)"; e.currentTarget.style.borderColor="rgba(0,0,0,0.12)"; e.currentTarget.style.color="#444"; }}
@@ -260,8 +262,8 @@ export default function BeforeAfterSection() {
               </button>
             </div>
 
-            {/* Dots */}
-            <div className="flex justify-center items-center gap-2 mt-6">
+            {/* Dots — desktop */}
+            <div className="flex justify-center items-center gap-2 mt-6 max-sm:hidden">
               {CARDS.map((_, i) => (
                 <button
                   key={i}
@@ -277,6 +279,45 @@ export default function BeforeAfterSection() {
                   }}
                 />
               ))}
+            </div>
+
+            {/* Bottom nav — mobile only (arrows + dots together) */}
+            <div className="ba-bottom-nav" style={{ display:"none", alignItems:"center", justifyContent:"center", gap:"12px", marginTop:"16px" }}>
+              <button
+                onClick={prev}
+                aria-label="Previous"
+                className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 cursor-pointer"
+                style={{ background:"rgba(0,0,0,0.05)", border:"1px solid rgba(0,0,0,0.12)", color:"#444" }}
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                  <path d="M15 18l-6-6 6-6" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </button>
+              {CARDS.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => { go(i); resetAuto(); }}
+                  aria-label={`Slide ${i + 1}`}
+                  className="border-none cursor-pointer p-0 rounded-full transition-all duration-300"
+                  style={{
+                    height: "8px",
+                    width: i === current ? "24px" : "8px",
+                    borderRadius: i === current ? "4px" : "50%",
+                    background: i === current ? "#6d5b8f" : "rgba(0,0,0,0.18)",
+                    boxShadow: i === current ? "0 0 10px rgba(109,91,143,0.35)" : "none",
+                  }}
+                />
+              ))}
+              <button
+                onClick={next}
+                aria-label="Next"
+                className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 cursor-pointer"
+                style={{ background:"rgba(0,0,0,0.05)", border:"1px solid rgba(0,0,0,0.12)", color:"#444" }}
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                  <path d="M9 18l6-6-6-6" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </button>
             </div>
           </div>
 

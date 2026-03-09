@@ -195,7 +195,7 @@ export default function TestimonialsSection() {
         }
       `}</style>
 
-      <section className="tm-wrap bg-white py-0 overflow-hidden">
+      <section id="testimonials" className="tm-wrap bg-white py-0 overflow-hidden">
         <div className="max-w-6xl mx-auto px-6">
 
           {/* ── TITLE BLOCK ── */}

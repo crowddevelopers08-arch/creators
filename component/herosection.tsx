@@ -368,7 +368,7 @@ export default function SkinHeroSection() {
         }
       `}</style>
 
-      <section id="consultation" className="sh-root sh-bg min-h-screen flex items-center max-sm:pt-22 py-10 lg:pt-25">
+      <section  className="sh-root sh-bg min-h-screen flex items-center max-sm:pt-22 py-10 lg:pt-25">
         <div className="sh-grid-overlay" />
         <div className="sh-orb sh-orb-1" />
         <div className="sh-orb sh-orb-2" />
@@ -468,7 +468,7 @@ export default function SkinHeroSection() {
 
                 <form onSubmit={handleSubmit}>
                   {/* Name + Phone */}
-                  <div className="sh-field" style={{ display: "grid", gridTemplateColumns: "1fr ", gap: "12px", marginBottom: "14px" }}>
+                  <div id="consultation" className="sh-field" style={{ display: "grid", gridTemplateColumns: "1fr ", gap: "12px", marginBottom: "14px" }}>
                     <div style={{ marginBottom: 0 }}>
                       <label className="sh-label">Name</label>
                       <input

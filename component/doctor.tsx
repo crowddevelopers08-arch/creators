@@ -251,7 +251,7 @@ export default function DoctorSection() {
         }
       `}</style>
 
-      <section className="doc-wrap bg-white py-6 overflow-hidden">
+      <section id="doctor" className="doc-wrap bg-white py-6 overflow-hidden">
         <div className="max-w-6xl mx-auto px-6">
 
           {/* ── 1. TITLE BLOCK ── */}

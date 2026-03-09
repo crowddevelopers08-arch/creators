@@ -6,10 +6,10 @@ import Image from "next/image";
 
 const NAV_LINKS = [
   { label: "Home", href: "/" },
-  { label: "Treatments", href: "#treatments" },
-  { label: "Hair Loss Stages", href: "#stages" },
-  { label: "Results", href: "#results" },
-  { label: "About Us", href: "#about" },
+  { label: "Treatments", href: "#skin-treatments" },
+  { label: "Doctor", href: "#doctor" },
+  { label: "Testimonial", href: "#testimonials" },
+  { label: "FAQ", href: "#faq" },
   { label: "Contact", href: "#contact" },
 ];
 

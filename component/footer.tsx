@@ -77,7 +77,7 @@ export default function VisitSection() {
         .vs-ring { animation:vsRingPulse 4s ease-in-out infinite; }
       `}</style>
 
-      <section className="vs-wrap py-4 max-sm:py-0 overflow-hidden">
+      <section id="contact" className="vs-wrap py-4 max-sm:py-0 overflow-hidden">
         <div className="max-w-6xl mx-auto px-6">
 
           {/* ── TITLE ── */}
