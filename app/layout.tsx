@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Creator Aesthetic Clinic",
-  description: "Leading Hair Restoration Clinic in India | CrowMedi",
+  description: "Leading Skin Clinic in India | CrowMedi",
 };
 
 export default function RootLayout({
