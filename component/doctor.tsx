@@ -389,7 +389,7 @@ export default function DoctorSection() {
                   }}
                 >
                   <Image
-                    src="/png-glasses.avif"
+                    src="/creatdoc.png"
                     alt="Dr. Sai — Creator Aesthetic Clinic"
                     fill
                     style={{ objectFit: "cover", objectPosition: "top" }}

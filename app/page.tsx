@@ -11,6 +11,7 @@ import CTASection from "@/component/cta";
 import VisitSection from "@/component/footer";
 import Footerred from "@/component/endfooter";
 import Treatments from "@/component/treatments";
+import MobileActionBar from "@/component/mobile-bar";
 
 export default function Home() {
   return (
@@ -26,7 +27,8 @@ export default function Home() {
       <CTASection />
       <VisitSection />
       <Footerred />
-      {/* <NewHairConsultationCardExact /> */}
+    
+      <MobileActionBar />
     </div>
   );
 }
