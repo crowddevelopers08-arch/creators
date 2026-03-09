@@ -226,8 +226,9 @@ export default function VisitSection() {
                 {/* tricolor accent bar */}
                 <div style={{height:"4px",background:"linear-gradient(90deg,#6d5b8f,#c9a96e,#2a9d8f)",width:"100%",flexShrink:0}} />
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3889.5!2d80.258!3d12.9389!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sVettuvankeni%2C+ECR%2C+Chennai!5e0!3m2!1sen!2sin!4v1700000000000"
+                  src="https://www.google.com/maps/embed?pb=!1m13!1m8!1m3!1d7777.12364956484!2d80.252421!3d12.93586!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTLCsDU2JzA5LjEiTiA4MMKwMTUnMDguNyJF!5e0!3m2!1sen!2sin!4v1773050088404!5m2!1sen!2sin"
                   width="100%" height="100%"
+                  
                   style={{border:0,display:"block"}}
                   allowFullScreen loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"

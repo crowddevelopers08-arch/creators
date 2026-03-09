@@ -99,7 +99,7 @@ export default function ThankYouPage() {
         }
       `}</style>
 
-      <section className="ty-wrap bg-white min-h-screen flex flex-col items-center justify-center py-20 px-6 overflow-hidden relative">
+      <section className="ty-wrap bg-[#080808] flex flex-col items-center justify-center text-white py-10 px-6 overflow-hidden relative">
 
         {/* Background glow blobs */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-96 rounded-full pointer-events-none" style={{ background:"radial-gradient(circle, rgba(109,91,143,0.05) 0%, transparent 70%)", zIndex:0 }} />
@@ -134,13 +134,13 @@ export default function ThankYouPage() {
               </span>
               <div className="ty-eyebrow-r" />
             </div>
-            <h1 style={{ fontFamily:"'Playfair Display',Georgia,serif", fontSize:"clamp(32px,5vw,56px)", fontWeight:700, color:"#111", lineHeight:1.15, margin:"0 0 4px", letterSpacing:"-0.5px" }}>
+            <h1 style={{ fontFamily:"'Playfair Display',Georgia,serif", fontSize:"clamp(32px,5vw,56px)", fontWeight:700, color:"#fff", lineHeight:1.15, margin:"0 0 4px", letterSpacing:"-0.5px" }}>
               Thank You.
             </h1>
             <h2 className="ty-italic-teal" style={{ fontSize:"clamp(20px,3.5vw,40px)", lineHeight:1.25, margin:"0 0 20px" }}>
               Dr. Sai Will Be in Touch.
             </h2>
-            <p style={{ fontSize:"16px", color:"rgba(0,0,0,0.5)", lineHeight:1.8, fontWeight:400, maxWidth:"460px", margin:"0 auto" }}>
+            <p style={{ fontSize:"16px", color:"rgba(255, 255, 255, 0.5)", lineHeight:1.8, fontWeight:400, maxWidth:"460px", margin:"0 auto" }}>
               Your consultation request has been received. A member of the Creator Aesthetic Clinic team will contact you shortly to confirm your appointment.
             </p>
           </div>
@@ -218,8 +218,8 @@ export default function ThankYouPage() {
                   S
                 </div>
                 <div className="text-left">
-                  <div style={{ fontSize:"14px", fontWeight:700, color:"#111", fontFamily:"'Playfair Display',Georgia,serif" }}>Dr. Sai</div>
-                  <div style={{ fontSize:"12px", color:"rgba(0,0,0,0.45)" }}>Creator Aesthetic Clinic, ECR, Chennai</div>
+                  <div style={{ fontSize:"14px", fontWeight:700, color:"#fff", fontFamily:"'Playfair Display',Georgia,serif" }}>Dr. Sai</div>
+                  <div style={{ fontSize:"12px", color:"rgba(255, 255, 255, 0.45)" }}>Creator Aesthetic Clinic, ECR, Chennai</div>
                 </div>
               </div>
               <div className="flex items-center gap-2 px-4 py-2 rounded-full" style={{ background:"rgba(52,211,153,0.08)", border:"1px solid rgba(52,211,153,0.2)" }}>
@@ -234,7 +234,7 @@ export default function ThankYouPage() {
             <a href="/" className="ty-btn px-10 py-4 rounded-full text-white font-semibold text-sm tracking-wide border-none cursor-pointer inline-block">
               Back to Home
             </a>
-            <p style={{ fontSize:"12px", color:"rgba(0,0,0,0.3)", marginTop:"16px" }}>
+            <p style={{ fontSize:"12px", color:"rgba(255, 255, 255, 0.3)", marginTop:"16px" }}>
               Creator Aesthetic Clinic · ECR, Chennai
             </p>
           </div>
