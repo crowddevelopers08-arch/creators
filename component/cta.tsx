@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import FadeIn from "./scrollanimate";
 
 export default function CTASection() {
   return (
@@ -74,6 +75,7 @@ export default function CTASection() {
         <div className="relative max-w-5xl mx-auto text-center" style={{ fontFamily: "Outfit, sans-serif" }}>
 
           {/* Live badge */}
+          <FadeIn direction="up">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border mb-2"
             style={{ background: "rgba(109,91,143,0.08)", borderColor: "rgba(109,91,143,0.25)" }}>
             <span className="cta-live-dot w-2 h-2 rounded-full block" style={{ background: "#6d5b8f" }} />
@@ -81,13 +83,15 @@ export default function CTASection() {
               Take the First Step Today
             </span>
           </div>
+          </FadeIn>
 
           {/* Headline */}
+          <FadeIn direction="up" delay={100}>
           <h2
             className="font-bold leading-[1.15] mb-1"
             style={{
               fontFamily: "'Playfair Display', Georgia, serif",
-              fontSize: "clamp(32px,5vw,48px)", fontWeight: 700, 
+              fontSize: "clamp(32px,5vw,48px)", fontWeight: 700,
               color: "#ffffff",
               letterSpacing: "-0.5px",
             }}
@@ -98,7 +102,7 @@ export default function CTASection() {
             className="font-bold italic leading-[1.2] mb-8"
             style={{
               fontFamily: "'Playfair Display', Georgia, serif",
-              fontSize: "clamp(32px,5vw,48px)", fontWeight: 700, 
+              fontSize: "clamp(32px,5vw,48px)", fontWeight: 700,
               background: "linear-gradient(90deg, #6d5b8f, #ec778d)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
@@ -108,23 +112,29 @@ export default function CTASection() {
           >
             When Will You Start?
           </h2>
+          </FadeIn>
 
           {/* Divider accent */}
+          <FadeIn direction="fade" delay={150}>
           <div className="flex items-center justify-center gap-4 mb-8">
             <div className="h-px flex-1 max-w-[120px]" style={{ background: "linear-gradient(90deg, transparent, rgba(109,91,143,0.4))" }} />
             <div className="w-1.5 h-1.5 rounded-full" style={{ background: "#6d5b8f" }} />
             <div className="h-px flex-1 max-w-[120px]" style={{ background: "linear-gradient(90deg, rgba(109,91,143,0.4), transparent)" }} />
           </div>
+          </FadeIn>
 
           {/* Body */}
+          <FadeIn direction="up" delay={200}>
           <p
             className="text-base leading-relaxed mx-auto mb-12 max-w-xl"
             style={{ color: "rgba(255,255,255,0.48)", fontWeight: 400 }}
           >
             Book consultation with Dr. Sai today. Walk in, get assessed, and leave with a personalised treatment plan  designed specifically for your skin, your goals, and your budget.
           </p>
+          </FadeIn>
 
           {/* Buttons */}
+          <FadeIn direction="up" delay={280}>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
 
             {/* Primary */}
@@ -132,7 +142,7 @@ export default function CTASection() {
               <span className="cta-ring" />
               <span className="cta-ring cta-ring-2" />
               <a
-                href="#consultation"
+                href="#consultation-form"
                 className="cta-btn-primary relative inline-flex items-center gap-3 text-white font-semibold rounded-full px-9 py-5 text-[15px] transition-all duration-300 hover:scale-105"
                 style={{
                   boxShadow: "0 8px 32px rgba(109,91,143,0.4), 0 2px 8px rgba(0,0,0,0.3)",
@@ -166,8 +176,10 @@ export default function CTASection() {
               Call: +91 63850 83099
             </a>
           </div>
+          </FadeIn>
 
           {/* Trust pills row */}
+          <FadeIn direction="up" delay={360}>
           <div className="flex flex-wrap items-center justify-center gap-3">
             {[
               { icon: "✓", text: "Free Consultation" },
@@ -189,6 +201,7 @@ export default function CTASection() {
               </div>
             ))}
           </div>
+          </FadeIn>
 
         </div>
       </section>

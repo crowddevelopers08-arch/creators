@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import FadeIn from "./scrollanimate";
 
 const testimonials = [
   {
@@ -199,6 +200,7 @@ export default function TestimonialsSection() {
         <div className="max-w-6xl mx-auto px-6">
 
           {/* ── TITLE BLOCK ── */}
+          <FadeIn direction="up">
           <div className="text-center mb-9">
             <div className="flex items-center justify-center gap-4 mb-1">
               <div className="tm-eyebrow-l" />
@@ -217,8 +219,10 @@ export default function TestimonialsSection() {
               These are the words of real patients from Creator Aesthetic Clinic, ECR.
             </p>
           </div>
+          </FadeIn>
 
           {/* ── MAIN TESTIMONIAL CARD ── */}
+          <FadeIn direction="up" delay={150}>
           <div className="relative mb-10">
 
             {/* Big decorative quote mark */}
@@ -341,6 +345,7 @@ export default function TestimonialsSection() {
               {String(total).padStart(2,"0")}
             </div>
           </div>
+          </FadeIn>
 
         </div>
       </section>

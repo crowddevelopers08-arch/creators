@@ -116,7 +116,7 @@ export default function VisitSection() {
                     </svg>
                     Call Now
                   </a>
-                  <a href="#consultation" className="vs-btn-book flex items-center justify-center gap-2 py-3.5 rounded-2xl font-semibold text-sm" style={{color:"#111",background:"#fff",border:"1.5px solid rgba(0,0,0,0.15)"}}>
+                  <a href="#consultation-form" className="vs-btn-book flex items-center justify-center gap-2 py-3.5 rounded-2xl font-semibold text-sm" style={{color:"#111",background:"#fff",border:"1.5px solid rgba(0,0,0,0.15)"}}>
                     <svg width="15" height="15" viewBox="0 0 24 24" fill="none">
                       <rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" strokeWidth="2"/>
                       <line x1="16" y1="2" x2="16" y2="6" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>

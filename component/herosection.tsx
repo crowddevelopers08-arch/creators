@@ -409,7 +409,7 @@ export default function SkinHeroSection() {
         }
       `}</style>
 
-      <section  className="sh-root sh-bg min-h-screen flex items-center max-sm:pt-22 py-10 lg:pt-25">
+      <section id="consultation-form" className="sh-root sh-bg min-h-screen flex items-center max-sm:pt-22 py-10 lg:pt-25">
         {BG_IMAGES.map((src, i) => (
           <div
             key={src}
@@ -489,9 +489,6 @@ export default function SkinHeroSection() {
               {/* CTA Buttons */}
               <div className="sh-cta-row">
                 <a href="#form1" className="sh-cta-primary">
-                  <svg className="sh-cta-icon" style={{ width: 16, height: 16 }} fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                  </svg>
                   Book Free Consultation
                 </a>
                 <a href="tel:+916385083099" className="sh-cta-secondary">
@@ -505,7 +502,7 @@ export default function SkinHeroSection() {
 
             {/* ─── RIGHT: Form ─── */}
             <div className="lg:w-1/2 w-full">
-              <div className="sh-card">
+              <div className="sh-card" id="consultation-form">
                 <h2 className="sh-card-title">
                   Book Your{" "}
                   <span style={{ color: "#6d5b8f" }}>Consultation</span>

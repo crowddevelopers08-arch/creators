@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import FadeIn from "./scrollanimate";
 
 const philosophyPoints = [
   {
@@ -255,6 +256,7 @@ export default function DoctorSection() {
         <div className="max-w-6xl mx-auto px-6">
 
           {/* ── 1. TITLE BLOCK ── */}
+          <FadeIn direction="up">
           <div className="text-center mb-5">
             <div className="flex items-center justify-center gap-4 mb-2">
               <div className="doc-eyebrow-l" />
@@ -307,8 +309,10 @@ export default function DoctorSection() {
               Behind every hair transformation at Creator Aesthetic Clinic is a doctor who takes hair loss personally because she understands the confidence it costs you.
             </p>
           </div>
+          </FadeIn>
 
           {/* ── 2. WHY CHOOSE HEADING ── */}
+          <FadeIn direction="right" delay={100}>
           <div className="mb-8">
             <div className="flex items-center gap-3 mb-4">
               <div
@@ -345,8 +349,10 @@ export default function DoctorSection() {
               and the right hands.
             </p>
           </div>
+          </FadeIn>
 
           {/* ── 3. DOCTOR IMAGES (left) + PHILOSOPHY (right) ── */}
+          <FadeIn direction="up" delay={200}>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
 
             {/* LEFT — Images */}
@@ -523,10 +529,12 @@ export default function DoctorSection() {
               </div>
             </div>
           </div>
+          </FadeIn>
 
           {/* ── CTA Buttons ── */}
+          <FadeIn direction="up" delay={100}>
           <div className="vs-cta-buttonse">
-            <a href="#consultation" className="vs-btn-primary">
+            <a href="#consultation-form" className="vs-btn-primary">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none">
                 <path
                   d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1C9.61 21 3 14.39 3 6a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.25 1.01l-2.2 2.2z"
@@ -545,6 +553,7 @@ export default function DoctorSection() {
               Let's Talk
             </a>
           </div>
+          </FadeIn>
 
         </div>
       </section>

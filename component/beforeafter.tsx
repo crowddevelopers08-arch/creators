@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
+import FadeIn from "./scrollanimate";
 
 const CARDS = [
   {
@@ -147,6 +148,7 @@ export default function BeforeAfterSection() {
         <div className="max-w-6xl mx-auto px-6">
 
           {/* ── TITLE BLOCK ── */}
+          <FadeIn direction="up">
           <div className="ba-title-block text-center mb-16">
             <div className="flex items-center justify-center gap-4 max-sm:mb-3 mb-2">
               <div className="ba-eyebrow-line-l" />
@@ -165,8 +167,10 @@ export default function BeforeAfterSection() {
               Each treatment below is performed under the direct supervision of Dr. Sai at Creator Aesthetic Clinic, ECR - where medical precision meets aesthetic artistry
             </p>
           </div>
+          </FadeIn>
 
           {/* ── CAROUSEL ── */}
+          <FadeIn direction="up" delay={180}>
           <div className="mb-4">
             <div className="flex items-center gap-3">
 
@@ -320,6 +324,7 @@ export default function BeforeAfterSection() {
               </button>
             </div>
           </div>
+          </FadeIn>
 
         </div>
       </section>

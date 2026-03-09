@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import FadeIn from "./scrollanimate";
 
 const treatments = [
   {
@@ -108,7 +109,7 @@ function ContactForm() {
       <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
         <div style={{ display: "flex", gap: 8, marginTop: 2 }}>
           <a
-            href="#consultation"
+            href="#consultation-form"
             style={{
               flex: 1,
               display: "flex",
@@ -255,6 +256,7 @@ export default function SkinTreatments() {
         <div style={{ maxWidth: 1100, margin: "0 auto" }}>
 
           {/* ── Header ── */}
+          <FadeIn direction="right">
           <div style={{ marginBottom: 32 }}>
             <p style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.28em", textTransform: "uppercase", color: "#6d5b8f", marginBottom: 10 }}>
               Skin Treatments
@@ -267,8 +269,10 @@ export default function SkinTreatments() {
               Five treatments. Each designed for a specific skin concern. All supervised personally by Dr. Sai.
             </p>
           </div>
+          </FadeIn>
 
           {/* ── Tabs (horizontal scroll on mobile) ── */}
+          <FadeIn direction="up" delay={150}>
           <div className="sk-tabs-scroll">
             {treatments.map((t) => (
               <button
@@ -288,8 +292,10 @@ export default function SkinTreatments() {
               </button>
             ))}
           </div>
+          </FadeIn>
 
           {/* ── Card ── */}
+          <FadeIn direction="up" delay={250}>
           <div
             key={active}
             className="sk-fade sk-grid"
@@ -354,6 +360,7 @@ export default function SkinTreatments() {
               <ContactForm />
             </div>
           </div>
+          </FadeIn>
 
         </div>
       </section>
