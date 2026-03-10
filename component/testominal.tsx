@@ -19,8 +19,8 @@ const testimonials = [
     name: "Anaya R",
     treatment: "Gluta + Collagen",
     initial: "A",
-    color: "#2a9d8f",
-    colorBg: "rgba(42,157,143,0.08)",
+    color: "#ec778d",
+    colorBg: "rgba(236,119,141,0.08)",
   },
   {
     id: 3,
@@ -28,8 +28,8 @@ const testimonials = [
     name: "Meera",
     treatment: "HIFU Treatment",
     initial: "M",
-    color: "#c9a96e",
-    colorBg: "rgba(201,169,110,0.08)",
+    color: "#9b88c2",
+    colorBg: "rgba(155,136,194,0.08)",
   },
   {
     id: 4,
@@ -37,8 +37,8 @@ const testimonials = [
     name: "Priya K",
     treatment: "Laser Hair Removal",
     initial: "P",
-    color: "#a78bfa",
-    colorBg: "rgba(167,139,250,0.08)",
+    color: "#d95f76",
+    colorBg: "rgba(217,95,118,0.08)",
   },
   {
     id: 5,
@@ -46,8 +46,8 @@ const testimonials = [
     name: "Rahul M",
     treatment: "MNRF Treatment",
     initial: "R",
-    color: "#f97316",
-    colorBg: "rgba(249,115,22,0.08)",
+    color: "#f2a0b5",
+    colorBg: "rgba(242,160,181,0.08)",
   },
 ];
 
@@ -196,7 +196,7 @@ export default function TestimonialsSection() {
         }
       `}</style>
 
-      <section id="testimonials" className="tm-wrap bg-white py-0 overflow-hidden">
+      <section id="testimonials" className="tm-wrap py-0 overflow-hidden" style={{ background: "#faf8ff" }}>
         <div className="max-w-6xl mx-auto px-6">
 
           {/* ── TITLE BLOCK ── */}

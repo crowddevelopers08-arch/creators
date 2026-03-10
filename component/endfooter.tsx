@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function Footerred() {
   return (
-    <footer className="relative bg-black text-white overflow-hidden">
+    <footer className="relative bg-black text-white overflow-hidden max-sm:mb-10">
 
       {/* Subtle top border gradient */}
       <div style={{ height: "1px", background: "linear-gradient(90deg, transparent, rgba(109,91,143,0.5), rgba(236,119,141,0.5), transparent)" }} />

@@ -54,13 +54,13 @@ const faqs = [
 ];
 
 const categoryColors: Record<string, { color: string; bg: string; border: string }> = {
-  Safety:    { color: "#34d399", bg: "rgba(52,211,153,0.08)",   border: "rgba(52,211,153,0.2)" },
-  Sessions:  { color: "#c9a96e", bg: "rgba(201,169,110,0.08)",  border: "rgba(201,169,110,0.2)" },
-  Procedure: { color: "#2a9d8f", bg: "rgba(42,157,143,0.08)",   border: "rgba(42,157,143,0.2)" },
-  Recovery:  { color: "#fb923c", bg: "rgba(251,146,60,0.08)",   border: "rgba(251,146,60,0.2)" },
-  Results:   { color: "#a78bfa", bg: "rgba(167,139,250,0.08)",  border: "rgba(167,139,250,0.2)" },
-  Treatment: { color: "#6d5b8f", bg: "rgba(109,91,143,0.08)",    border: "rgba(109,91,143,0.2)" },
-  Clinic:    { color: "#38bdf8", bg: "rgba(56,189,248,0.08)",   border: "rgba(56,189,248,0.2)" },
+  Safety:    { color: "#9b88c2", bg: "rgba(155,136,194,0.08)",  border: "rgba(155,136,194,0.2)" },
+  Sessions:  { color: "#ec778d", bg: "rgba(236,119,141,0.08)",  border: "rgba(236,119,141,0.2)" },
+  Procedure: { color: "#6d5b8f", bg: "rgba(109,91,143,0.08)",   border: "rgba(109,91,143,0.2)" },
+  Recovery:  { color: "#d95f76", bg: "rgba(217,95,118,0.08)",   border: "rgba(217,95,118,0.2)" },
+  Results:   { color: "#f2a0b5", bg: "rgba(242,160,181,0.08)",  border: "rgba(242,160,181,0.2)" },
+  Treatment: { color: "#6d5b8f", bg: "rgba(109,91,143,0.08)",   border: "rgba(109,91,143,0.2)" },
+  Clinic:    { color: "#5a4a7a", bg: "rgba(90,74,122,0.08)",    border: "rgba(90,74,122,0.2)" },
 };
 
 export default function SkinFAQSection() {
@@ -152,7 +152,7 @@ export default function SkinFAQSection() {
         .sfaq-cta:hover { box-shadow: 0 0 28px rgba(109,91,143,0.4); }
       `}</style>
 
-      <section id="faq" className="sfaq-wrap bg-white max-sm:py-6 py-12 overflow-hidden">
+      <section id="faq" className="sfaq-wrap max-sm:py-6 py-12 overflow-hidden" style={{ background: "#f5f1fb" }}>
         <div className="max-w-6xl mx-auto px-6">
 
           {/* ── TITLE BLOCK ── */}

@@ -6,7 +6,7 @@ import FadeIn from "./scrollanimate";
 const REELS = [
   { id: "DTtoZAWk006" },
   { id: "DUQaHBDjPLM" },
-  { id: "DUanIVik-XF" },
+  // { id: "DUanIVik-XF" },
   { id: "DU5n-l1EwWh" },
   { id: "DVQmGObDCei" },
 ];
@@ -308,6 +308,10 @@ export default function VideoSection() {
           .vs-card-title { font-size: 12px; }
           .vs-ig-badge { width: 28px; height: 28px; }
         }
+
+        @media (min-width: 641px) {
+          .vs-call-wrapper { display: none !important; }
+        }
       `}</style>
 
       <section className="vs-wrap">
@@ -386,18 +390,20 @@ export default function VideoSection() {
               <div className="vs-cta-sub">Book a free consultation with Dr. Sai — no pressure, just answers.</div>
             </div>
             <div className="vs-cta-buttons">
-              <a href="#consultation-form" className="vs-btn-primary">
+              <a href="#" onClick={e => { e.preventDefault(); window.dispatchEvent(new CustomEvent("open-booking-modal")); }} className="vs-btn-primary">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none">
                   <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1C9.61 21 3 14.39 3 6a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.25 1.01l-2.2 2.2z" fill="white"/>
                 </svg>
                 Book Free Consultation
               </a>
+              <div className="vs-call-wrapper">
               <a href="tel:+919876543210" className="vs-btn-secondary">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none">
                   <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1C9.61 21 3 14.39 3 6a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.25 1.01l-2.2 2.2z" fill="#333"/>
                 </svg>
                 Let's Talk
               </a>
+              </div>
             </div>
           </div>
           </FadeIn>

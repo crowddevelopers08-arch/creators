@@ -75,9 +75,9 @@ export default function DoctorSection() {
           border-radius: 100px;
           font-size: 12px;
           font-weight: 600;
-          background: rgba(201,169,110,0.1);
-          border: 1px solid rgba(201,169,110,0.3);
-          color: #a07840;
+          background: rgba(109,91,143,0.08);
+          border: 1px solid rgba(109,91,143,0.25);
+          color: #6d5b8f;
           white-space: nowrap;
         }
 
@@ -252,7 +252,7 @@ export default function DoctorSection() {
         }
       `}</style>
 
-      <section id="doctor" className="doc-wrap bg-white py-6 overflow-hidden">
+      <section id="doctor" className="doc-wrap py-6 overflow-hidden" style={{ background: "#faf8ff" }}>
         <div className="max-w-6xl mx-auto px-6">
 
           {/* ── 1. TITLE BLOCK ── */}
@@ -274,6 +274,7 @@ export default function DoctorSection() {
               <div className="doc-eyebrow-r" />
             </div>
             <h2
+            className="doc-italic-teal"
               style={{
                 fontFamily: "'Playfair Display',Georgia,serif",
                 fontSize: "clamp(28px,5vw,48px)",
@@ -286,7 +287,7 @@ export default function DoctorSection() {
             >
               Meet Dr. Sai.
             </h2>
-            <h2
+            {/* <h2
               className="doc-italic-teal"
               style={{
                 fontSize: "clamp(18px,3.5vw,42px)",
@@ -295,7 +296,7 @@ export default function DoctorSection() {
               }}
             >
               Picture of the doctor at the left side
-            </h2>
+            </h2> */}
             <p
               style={{
                 fontSize: "15px",
@@ -358,23 +359,23 @@ export default function DoctorSection() {
             {/* LEFT — Images */}
             <div className="flex justify-center lg:justify-start">
               <div className="doc-img-wrapper">
-                {/* Teal glow */}
+                {/* Purple glow */}
                 <div
                   className="absolute rounded-full"
                   style={{
                     bottom: "-20px", left: "-20px",
                     width: "160px", height: "160px",
-                    background: "radial-gradient(circle, rgba(42,157,143,0.13) 0%, transparent 70%)",
+                    background: "radial-gradient(circle, rgba(109,91,143,0.18) 0%, transparent 70%)",
                     zIndex: 0,
                   }}
                 />
-                {/* Gold glow */}
+                {/* Pink glow */}
                 <div
                   className="absolute rounded-full"
                   style={{
                     top: "-10px", right: "-10px",
                     width: "120px", height: "120px",
-                    background: "radial-gradient(circle, rgba(201,169,110,0.15) 0%, transparent 70%)",
+                    background: "radial-gradient(circle, rgba(236,119,141,0.18) 0%, transparent 70%)",
                     zIndex: 0,
                   }}
                 />
@@ -412,7 +413,7 @@ export default function DoctorSection() {
                   }}
                 >
                   <Image
-                    src="/female-doctor.jpg"
+                    src="/2026-01-27.webp"
                     alt="Dr. Sai — Consultation"
                     fill
                     style={{ objectFit: "cover", objectPosition: "center" }}
@@ -534,16 +535,16 @@ export default function DoctorSection() {
           {/* ── CTA Buttons ── */}
           <FadeIn direction="up" delay={100}>
           <div className="vs-cta-buttonse">
-            <a href="#consultation-form" className="vs-btn-primary">
+            <a href="#" onClick={e => { e.preventDefault(); window.dispatchEvent(new CustomEvent("open-booking-modal")); }} className="vs-btn-primary ">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none">
                 <path
                   d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1C9.61 21 3 14.39 3 6a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.25 1.01l-2.2 2.2z"
                   fill="white"
                 />
               </svg>
-              Book Free Consultation
+              Book Your Consultation
             </a>
-            <a href="tel:+919876543210" className="vs-btn-secondary">
+            <a href="tel:+91 63850 83099" className="vs-btn-secondary sh-cta-mobile-only">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none">
                 <path
                   d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1C9.61 21 3 14.39 3 6a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.25 1.01l-2.2 2.2z"

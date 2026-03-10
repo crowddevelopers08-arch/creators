@@ -18,7 +18,7 @@ const treatments = [
       "Fine lines & loss of firmness",
       "Uneven skin tone or pigmentation",
     ],
-    image: "/treatments.avif",
+    image: "/treatment.avif",
     imageAlt: "Red light therapy skin treatment session",
   },
   {
@@ -35,7 +35,7 @@ const treatments = [
       "Anti-ageing & skin rejuvenation",
       "Bridal glow preparation",
     ],
-    image: "/treatments1.avif",
+    image: "/treatment1.webp",
     imageAlt: "Gluta collagen skin brightening treatment",
   },
   {
@@ -52,7 +52,7 @@ const treatments = [
       "Overall facial tightening & contouring",
       "Ages 28–60 seeking a non-surgical lift",
     ],
-    image: "/treatments2.avif",
+    image: "/treatment2.avif",
     imageAlt: "HIFU facial tightening treatment",
   },
   {
@@ -86,7 +86,7 @@ const treatments = [
       "Underarm darkness due to shaving irritation",
       "People tired of repeated waxing",
     ],
-    image: "/treatments4.avif",
+    image: "/treatment3.avif",
     imageAlt: "Laser hair removal treatment session",
   },
 ];
@@ -109,7 +109,8 @@ function ContactForm() {
       <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
         <div style={{ display: "flex", gap: 8, marginTop: 2 }}>
           <a
-            href="#consultation-form"
+            href="#"
+            onClick={(e) => { e.preventDefault(); window.dispatchEvent(new CustomEvent("open-booking-modal")); }}
             style={{
               flex: 1,
               display: "flex",
@@ -127,6 +128,7 @@ function ContactForm() {
           >
             Contact Us
           </a>
+          <div className="sk-call-wrapper">
           <a
             href="tel:+919999999999"
             style={{
@@ -151,6 +153,7 @@ function ContactForm() {
             </svg>
             Let&apos;s Talk
           </a>
+          </div>
         </div>
       </div>
     </div>
@@ -164,11 +167,24 @@ export default function SkinTreatments() {
   return (
     <>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Outfit:wght@300;400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&display=swap');
 
         .sk-root * { box-sizing: border-box; }
         .sk-root { font-family: 'Outfit', sans-serif; }
         .sk-serif { font-family: 'Cormorant Garamond', serif; }
+
+        .sk-eyebrow-l { height:1px; width:60px; background:linear-gradient(90deg,transparent,#ec778d); }
+        .sk-eyebrow-r { height:1px; width:60px; background:linear-gradient(90deg,#ec778d,transparent); }
+
+        .sk-italic-teal {
+          font-family: "Playfair Display", Georgia, serif;
+          font-style: italic;
+          font-weight: 700;
+          background: linear-gradient(90deg, #6d5b8f, #ec778d);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+        }
 
         .sk-fade {
           animation: skFade 0.35s ease forwards;
@@ -238,6 +254,10 @@ export default function SkinTreatments() {
         .sk-tabs-scroll::-webkit-scrollbar { display: none; }
 
         /* ── Media queries ── */
+        @media (min-width: 641px) {
+          .sk-call-wrapper { display: none !important; }
+        }
+
         @media (max-width: 1023px) {
           .sk-grid { grid-template-columns: 1fr !important; }
           .sk-img-wrap { min-height: 260px; }
@@ -256,16 +276,22 @@ export default function SkinTreatments() {
         <div style={{ maxWidth: 1100, margin: "0 auto" }}>
 
           {/* ── Header ── */}
-          <FadeIn direction="right">
-          <div style={{ marginBottom: 32 }}>
-            <p style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.28em", textTransform: "uppercase", color: "#6d5b8f", marginBottom: 10 }}>
-              Skin Treatments
-            </p>
-            <h2 className="sk-serif" style={{ fontSize: "clamp(32px,5vw,48px)", fontWeight: 700, color: "white", lineHeight: 1.2, marginBottom: 10 }}>
-              Treatments For Every<br />
-              <span style={{ color: "#ec778d" }}>Skin Goal.</span>
+          <FadeIn direction="up">
+          <div style={{ marginBottom: 40, textAlign: "center" }}>
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 16, marginBottom: 10 }}>
+              <div className="sk-eyebrow-l" />
+              <span style={{ fontSize: "11px", fontWeight: 600, letterSpacing: "3px", textTransform: "uppercase", color: "#6d5b8f" }}>
+                Skin Treatments
+              </span>
+              <div className="sk-eyebrow-r" />
+            </div>
+            <h2 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: "clamp(32px,5vw,48px)", fontWeight: 700, color: "white", lineHeight: 1.2, margin: "0 0 4px" }}>
+              Treatments For Every
             </h2>
-            <p style={{ color: "rgba(255,255,255,0.42)", fontSize: 14, maxWidth: 480, lineHeight: 1.65 }}>
+            <h2 className="sk-italic-teal" style={{ fontSize: "clamp(20px,3.5vw,42px)", lineHeight: 1.25, margin: "0 0 16px" }}>
+              Skin Goal.
+            </h2>
+            <p style={{ color: "rgba(255,255,255,0.42)", fontSize: 14, maxWidth: 480, lineHeight: 1.65, margin: "0 auto" }}>
               Five treatments. Each designed for a specific skin concern. All supervised personally by Dr. Sai.
             </p>
           </div>

@@ -22,43 +22,43 @@ const CARDS = [
     name: "Botox & Fillers",
     desc: "Precision-placed botulinum toxin and hyaluronic acid fillers to smooth lines and restore youthful volume.",
     stat: "Results last 6–12 months",
-    tagColor: "#34d399",
-    tagBg: "rgba(52,211,153,0.1)",
-    tagBorder: "rgba(52,211,153,0.3)",
-    image: "/before1.jpg",
+    tagColor: "#ec778d",
+    tagBg: "rgba(236,119,141,0.12)",
+    tagBorder: "rgba(236,119,141,0.35)",
+    image: "/botoxs.png",
   },
   {
     id: 3,
     tag: "Acne & Scars",
-    name: "Carbon Laser Peel",
+    name: "Carbon Peel",
     desc: "Hollywood peel that deep-cleanses pores, reduces active acne, and significantly lightens post-acne marks.",
     stat: "Zero downtime treatment",
-    tagColor: "#22d3ee",
-    tagBg: "rgba(34,211,238,0.1)",
-    tagBorder: "rgba(34,211,238,0.3)",
-    image: "/before2.webp",
+    tagColor: "#f2a0b5",
+    tagBg: "rgba(242,160,181,0.12)",
+    tagBorder: "rgba(242,160,181,0.35)",
+    image: "/peels.png",
   },
   {
     id: 4,
     tag: "Skin Tightening",
-    name: "HIFU Lift",
+    name: "HIFU",
     desc: "High-intensity focused ultrasound that stimulates deep collagen production for a non-surgical face lift.",
     stat: "Lifts & firms in 1 session",
-    tagColor: "#a78bfa",
-    tagBg: "rgba(167,139,250,0.1)",
-    tagBorder: "rgba(167,139,250,0.3)",
-    image: "/before3.jpg",
+    tagColor: "#9b88c2",
+    tagBg: "rgba(155,136,194,0.12)",
+    tagBorder: "rgba(155,136,194,0.35)",
+    image: "/BA-Template-3-5.jpg",
   },
   {
     id: 5,
     tag: "Pigmentation",
-    name: "Q-Switch Laser",
+    name: "Q-Switch",
     desc: "Targeted laser energy breaks down stubborn melanin clusters to clear dark spots, melasma, and sun damage.",
     stat: "3–5 sessions for full clarity",
-    tagColor: "#fb923c",
-    tagBg: "rgba(251,146,60,0.1)",
-    tagBorder: "rgba(251,146,60,0.3)",
-    image: "/before4.jpg",
+    tagColor: "#d95f76",
+    tagBg: "rgba(217,95,118,0.12)",
+    tagBorder: "rgba(217,95,118,0.35)",
+    image: "/Pigmentation.jpg",
   },
 ];
 
@@ -144,7 +144,7 @@ export default function BeforeAfterSection() {
         }
       `}</style>
 
-      <section className="ba-wrap bg-white max-sm:py-5 py-10">
+      <section className="ba-wrap max-sm:py-5 py-10" style={{ background: "#faf8ff" }}>
         <div className="max-w-6xl mx-auto px-6">
 
           {/* ── TITLE BLOCK ── */}
@@ -189,7 +189,7 @@ export default function BeforeAfterSection() {
               </button>
 
               {/* Cards */}
-              <div className="ba-cards-container flex-1 flex items-center justify-center gap-5" style={{ perspective:"1200px", minHeight:"420px", width:"100%" }}>
+              <div className="ba-cards-container flex-1 flex items-center justify-center gap-5" style={{ perspective:"1200px", minHeight:"540px", width:"100%" }}>
                 {visible.map((cardIdx, position) => {
                   const card = CARDS[cardIdx];
                   const isCenter = position === 1;
@@ -198,13 +198,13 @@ export default function BeforeAfterSection() {
                       key={`${card.id}-${position}`}
                       className={`ba-card-anim relative rounded-3xl overflow-hidden flex-shrink-0 cursor-pointer ${isCenter ? "ba-center" : "ba-side"}`}
                       style={isCenter ? {
-                        width: "340px", height: "420px",
+                        width: "420px", height: "540px",
                         transform: "scale(1) translateZ(0)",
                         border: "1px solid rgba(109,91,143,0.3)",
                         boxShadow: "0 0 40px rgba(109,91,143,0.12), 0 20px 50px rgba(0,0,0,0.12)",
                         zIndex: 2,
                       } : {
-                        width: "270px", height: "360px",
+                        width: "330px", height: "460px",
                         transform: "scale(0.92)",
                         opacity: 0.55,
                         zIndex: 1,
@@ -240,7 +240,7 @@ export default function BeforeAfterSection() {
                           style={{ background:"rgba(255,255,255,0.08)", border:"1px solid rgba(255,255,255,0.12)", color:"rgba(255,255,255,0.85)" }}
                         >
                           <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
-                            <path d="M9 11l3 3 9-9" stroke="#34d399" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
+                            <path d="M9 11l3 3 9-9" stroke="#ec778d" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
                           </svg>
                           {card.stat}
                         </div>

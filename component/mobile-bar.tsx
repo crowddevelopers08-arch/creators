@@ -13,7 +13,7 @@ export default function MobileActionBar() {
     >
       {/* Call Now */}
       <a
-        href="tel:+91 9363707090"
+        href="tel:+91 63850 83099"
         className="
           flex-1 flex items-center justify-center gap-2
           py-4 font-semibold
@@ -28,24 +28,25 @@ export default function MobileActionBar() {
       </a>
 
       {/* Book Now */}
-      <button
-        onClick={() => {
-    document.getElementById("consultation")
-      ?.scrollIntoView({ behavior: "smooth", block: "start" });
-  }}
+      <a
         className="
           flex-1 flex items-center justify-center gap-2
           py-4 font-semibold
-          text-black
-          bg-white
+          text-white
           text-sm
-          border-l border-gray-200
+          border-l border-[#d96a80]
           active:scale-95 transition
         "
+        style={{ background: "linear-gradient(90deg, #ec778d, #d95f76)" }}
+        href="#"
+        onClick={(e) => {
+          e.preventDefault();
+          window.dispatchEvent(new CustomEvent("open-booking-modal"));
+        }}
       >
         <Calendar className="w-4 h-4" />
         Book Now
-      </button>
+      </a>
     </div>
   );
 }

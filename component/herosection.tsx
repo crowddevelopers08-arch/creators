@@ -1,6 +1,74 @@
+// components/SkinHeroSection.tsx (updated)
 "use client";
 
 import React, { useState, useMemo, useEffect } from "react";
+import SkinHeroForm from "./skinheroform";
+
+function HeroInlineForm() {
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [location, setLocation] = useState("");
+  const [skinConcern, setSkinConcern] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+
+  const canSubmit = useMemo(() => (
+    name.trim().length > 1 && /^\d{10}$/.test(phone) &&
+    location.trim().length > 0 && skinConcern.trim().length > 0
+  ), [name, phone, location, skinConcern]);
+
+  const handleSubmit = async (e: React.SyntheticEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (!canSubmit) return;
+    setLoading(true);
+    try {
+      const res = await fetch("/api/contact-form", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name, mobile: phone, concern: skinConcern,
+          treatment: "Skin Consultation",
+          message: `Location: ${location} | Skin Concern: ${skinConcern}`,
+          source: "skin-hero-section-form",
+          formName: "skin-hero-section-form",
+        }),
+      });
+      const data = await res.json();
+      if (!res.ok || !data.success) { alert(data.error || "Submission failed."); return; }
+      setSuccess(true);
+      setName(""); setPhone(""); setLocation(""); setSkinConcern("");
+    } catch { alert("Something went wrong. Please try again.");
+    } finally { setLoading(false); }
+  };
+
+  return (
+    <>
+      {success && <div className="sh-success">Thank you! Our team will reach out to you shortly.</div>}
+      <form onSubmit={handleSubmit}>
+        <div className="sh-field">
+          <label className="sh-label">Name</label>
+          <input className="sh-input" placeholder="Your full name" value={name} onChange={e => setName(e.target.value)} />
+        </div>
+        <div className="sh-field">
+          <label className="sh-label">Phone Number</label>
+          <input className="sh-input" placeholder="10-digit number" inputMode="numeric" value={phone} onChange={e => setPhone(e.target.value.replace(/\D/g, "").slice(0, 10))} />
+        </div>
+        <div className="sh-field">
+          <label className="sh-label">Location</label>
+          <input className="sh-input" placeholder="Your area / city" value={location} onChange={e => setLocation(e.target.value)} />
+        </div>
+        <div className="sh-field">
+          <label className="sh-label">Tell Us About Your Skin Problem</label>
+          <textarea className="sh-textarea" placeholder="e.g. acne scars, pigmentation, hair removal, skin tightening..." value={skinConcern} onChange={e => setSkinConcern(e.target.value)} />
+        </div>
+        <p className="sh-terms">By submitting, you agree to our <a href="#">Terms of Service</a> &amp; <a href="#">Privacy Policy</a>.</p>
+        <button type="submit" className="sh-submit" disabled={!canSubmit || loading}>
+          {loading ? "Submitting..." : "Book Free Consultation →"}
+        </button>
+      </form>
+    </>
+  );
+}
 
 const BG_IMAGES = [
   "/female-doctor.jpg",
@@ -56,12 +124,6 @@ const TRUST_BADGES = [
 ];
 
 export default function SkinHeroSection() {
-  const [name, setName] = useState("");
-  const [phone, setPhone] = useState("");
-  const [location, setLocation] = useState("");
-  const [skinConcern, setSkinConcern] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [success, setSuccess] = useState(false);
   const [bgIndex, setBgIndex] = useState(0);
 
   useEffect(() => {
@@ -70,50 +132,6 @@ export default function SkinHeroSection() {
     }, 5000);
     return () => clearInterval(timer);
   }, []);
-
-  const canSubmit = useMemo(() => {
-    return (
-      name.trim().length > 1 &&
-      /^\d{10}$/.test(phone) &&
-      location.trim().length > 0 &&
-      skinConcern.trim().length > 0
-    );
-  }, [name, phone, location, skinConcern]);
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    if (!canSubmit) return;
-    setLoading(true);
-    try {
-      const res = await fetch("/api/contact-form", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name,
-          mobile: phone,
-          concern: skinConcern,
-          treatment: "Skin Consultation",
-          message: `Location: ${location} | Skin Concern: ${skinConcern}`,
-          source: "skin-hero-section-form",
-          formName: "skin-hero-section-form",
-        }),
-      });
-      const data = await res.json();
-      if (!res.ok || !data.success) {
-        alert(data.error || "Submission failed. Please try again.");
-        return;
-      }
-      setSuccess(true);
-      setName("");
-      setPhone("");
-      setLocation("");
-      setSkinConcern("");
-    } catch {
-      alert("Something went wrong. Please try again.");
-    } finally {
-      setLoading(false);
-    }
-  };
 
   return (
     <>
@@ -407,9 +425,13 @@ export default function SkinHeroSection() {
           .sh-card { padding: 24px 18px; }
           .sh-cta-primary, .sh-cta-secondary { font-size: 13px; padding: 12px 20px; }
         }
+
+        @media (min-width: 641px) {
+          .sh-cta-mobile-only { display: none !important; }
+        }
       `}</style>
 
-      <section id="consultation-form" className="sh-root sh-bg min-h-screen flex items-center max-sm:pt-22 py-10 lg:pt-25">
+      <section className="sh-root sh-bg flex items-center max-sm:pt-22 py-10 lg:pt-25" style={{ scrollMarginTop: "70px" }}>
         {BG_IMAGES.map((src, i) => (
           <div
             key={src}
@@ -452,7 +474,7 @@ export default function SkinHeroSection() {
 
               {/* Subtext */}
               <p style={{ color: "rgba(255,255,255,0.52)", fontSize: 15, lineHeight: 1.75, maxWidth: 480, fontWeight: 400 }}>
-                Advanced skin treatments by Dr. Sai – MBBS, DVL. From deep lifting with HIFU to full-body brightening, every treatment is medically guided, clinically proven, and designed for visible results.
+                Advanced skin treatments by Dr. Sai. From deep lifting with HIFU to full-body brightening, every treatment is medically guided, clinically proven, and designed for visible results.
               </p>
 
               {/* Google Rating */}
@@ -488,10 +510,10 @@ export default function SkinHeroSection() {
 
               {/* CTA Buttons */}
               <div className="sh-cta-row">
-                <a href="#form1" className="sh-cta-primary">
-                  Book Free Consultation
+                <a href="#" onClick={e => { e.preventDefault(); window.dispatchEvent(new CustomEvent("open-booking-modal")); }} className="sh-cta-primary">
+                  Book Your Consultation
                 </a>
-                <a href="tel:+916385083099" className="sh-cta-secondary">
+                <a href="tel:+916385083099" className="sh-cta-secondary sh-cta-mobile-only">
                   <svg className="sh-cta-icon" style={{ width: 16, height: 16 }} fill="currentColor" viewBox="0 0 24 24">
                     <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
                   </svg>
@@ -500,84 +522,21 @@ export default function SkinHeroSection() {
               </div>
             </div>
 
+            {/* ─── RIGHT - FORM ─── */}
             <div className="lg:w-1/2 w-full">
-              <div className="sh-card" id="consultation-form">
-                <h2 className="sh-card-title">
-                  Book Your{" "}
-                  <span style={{ color: "#6d5b8f" }}>Consultation</span>
-                </h2>
+              <div className="sh-card">
+                <h2 className="sh-card-title">Book Your{" "}<span style={{ color: "#6d5b8f" }}>Consultation</span></h2>
                 <p className="sh-card-sub">Whatever your concern, we have a solution!</p>
-
-                {success && (
-                  <div className="sh-success">
-                    Thank you! Our team will reach out to you shortly.
-                  </div>
-                )}
-
-                <form onSubmit={handleSubmit}>
-                  {/* Name + Phone */}
-                  <div className="sh-field" style={{ display: "grid", gridTemplateColumns: "1fr ", gap: "12px", marginBottom: "14px" }}>
-                    <div style={{ marginBottom: 0 }}>
-                      <label className="sh-label">Name</label>
-                      <input
-                        className="sh-input"
-                        placeholder="Your full name"
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
-                      />
-                    </div>
-                    <div style={{ marginBottom: 0 }}>
-                      <label className="sh-label">Phone Number</label>
-                      <input
-                        className="sh-input"
-                        placeholder="10-digit number"
-                        inputMode="numeric"
-                        value={phone}
-                        onChange={(e) => setPhone(e.target.value.replace(/\D/g, "").slice(0, 10))}
-                      />
-                    </div>
-                  </div>
-
-                  {/* Location */}
-                  <div className="sh-field">
-                    <label className="sh-label">Location</label>
-                    <input
-                      className="sh-input"
-                      placeholder="Your area / city"
-                      value={location}
-                      onChange={(e) => setLocation(e.target.value)}
-                    />
-                  </div>
-
-                  {/* Skin Concern */}
-                  <div className="sh-field">
-                    <label className="sh-label">Tell Us About Your Skin Problem</label>
-                    <textarea
-                      className="sh-textarea"
-                      placeholder="e.g. acne scars, pigmentation, hair removal, skin tightening..."
-                      value={skinConcern}
-                      onChange={(e) => setSkinConcern(e.target.value)}
-                    />
-                  </div>
-
-                  {/* Terms */}
-                  <p className="sh-terms">
-                    By submitting, you agree to our{" "}
-                    <a href="#">Terms of Service</a> &amp;{" "}
-                    <a href="#">Privacy Policy</a>.
-                  </p>
-
-                  {/* Submit */}
-                  <button type="submit" className="sh-submit" disabled={!canSubmit || loading}>
-                    {loading ? "Submitting..." : "Book Free Consultation →"}
-                  </button>
-                </form>
+                <HeroInlineForm />
               </div>
             </div>
 
           </div>
         </div>
       </section>
+
+      {/* Global booking modal */}
+      <SkinHeroForm />
     </>
   );
 }
