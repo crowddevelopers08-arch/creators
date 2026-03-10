@@ -1,74 +1,8 @@
 // components/SkinHeroSection.tsx (updated)
 "use client";
 
-import React, { useState, useMemo, useEffect } from "react";
+import { useState, useEffect } from "react";
 import SkinHeroForm from "./skinheroform";
-
-function HeroInlineForm() {
-  const [name, setName] = useState("");
-  const [phone, setPhone] = useState("");
-  const [location, setLocation] = useState("");
-  const [skinConcern, setSkinConcern] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [success, setSuccess] = useState(false);
-
-  const canSubmit = useMemo(() => (
-    name.trim().length > 1 && /^\d{10}$/.test(phone) &&
-    location.trim().length > 0 && skinConcern.trim().length > 0
-  ), [name, phone, location, skinConcern]);
-
-  const handleSubmit = async (e: React.SyntheticEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    if (!canSubmit) return;
-    setLoading(true);
-    try {
-      const res = await fetch("/api/contact-form", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name, mobile: phone, concern: skinConcern,
-          treatment: "Skin Consultation",
-          message: `Location: ${location} | Skin Concern: ${skinConcern}`,
-          source: "skin-hero-section-form",
-          formName: "skin-hero-section-form",
-        }),
-      });
-      const data = await res.json();
-      if (!res.ok || !data.success) { alert(data.error || "Submission failed."); return; }
-      setSuccess(true);
-      setName(""); setPhone(""); setLocation(""); setSkinConcern("");
-    } catch { alert("Something went wrong. Please try again.");
-    } finally { setLoading(false); }
-  };
-
-  return (
-    <>
-      {success && <div className="sh-success">Thank you! Our team will reach out to you shortly.</div>}
-      <form onSubmit={handleSubmit}>
-        <div className="sh-field">
-          <label className="sh-label">Name</label>
-          <input className="sh-input" placeholder="Your full name" value={name} onChange={e => setName(e.target.value)} />
-        </div>
-        <div className="sh-field">
-          <label className="sh-label">Phone Number</label>
-          <input className="sh-input" placeholder="10-digit number" inputMode="numeric" value={phone} onChange={e => setPhone(e.target.value.replace(/\D/g, "").slice(0, 10))} />
-        </div>
-        <div className="sh-field">
-          <label className="sh-label">Location</label>
-          <input className="sh-input" placeholder="Your area / city" value={location} onChange={e => setLocation(e.target.value)} />
-        </div>
-        <div className="sh-field">
-          <label className="sh-label">Tell Us About Your Skin Problem</label>
-          <textarea className="sh-textarea" placeholder="e.g. acne scars, pigmentation, hair removal, skin tightening..." value={skinConcern} onChange={e => setSkinConcern(e.target.value)} />
-        </div>
-        <p className="sh-terms">By submitting, you agree to our <a href="#">Terms of Service</a> &amp; <a href="#">Privacy Policy</a>.</p>
-        <button type="submit" className="sh-submit" disabled={!canSubmit || loading}>
-          {loading ? "Submitting..." : "Book Your Consultation →"}
-        </button>
-      </form>
-    </>
-  );
-}
 
 const BG_IMAGES = [
   "/female-doctor.jpg",
@@ -525,7 +459,7 @@ export default function SkinHeroSection() {
               <div className="sh-card">
                 <h2 className="sh-card-title">Book Your{" "}<span style={{ color: "#6d5b8f" }}>Consultation</span></h2>
                 <p className="sh-card-sub">Whatever your concern, we have a solution!</p>
-                <HeroInlineForm />
+                <SkinHeroForm inline />
               </div>
             </div>
 
