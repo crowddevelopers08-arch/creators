@@ -63,7 +63,7 @@ function HeroInlineForm() {
         </div>
         <p className="sh-terms">By submitting, you agree to our <a href="#">Terms of Service</a> &amp; <a href="#">Privacy Policy</a>.</p>
         <button type="submit" className="sh-submit" disabled={!canSubmit || loading}>
-          {loading ? "Submitting..." : "Book Free Consultation →"}
+          {loading ? "Submitting..." : "Book Your Consultation →"}
         </button>
       </form>
     </>
@@ -72,8 +72,6 @@ function HeroInlineForm() {
 
 const BG_IMAGES = [
   "/female-doctor.jpg",
-  "/doctor23.avif",
-  "/doctor22.avif",
   "/contact.avif",
 ];
 

@@ -35,7 +35,7 @@ const treatments = [
       "Anti-ageing & skin rejuvenation",
       "Bridal glow preparation",
     ],
-    image: "/treatment1.webp",
+    image: "/gulta.jpg",
     imageAlt: "Gluta collagen skin brightening treatment",
   },
   {

@@ -123,12 +123,12 @@ export default function SkinHeroForm() {
         .shf-label {
           display: block; font-size: 11px; font-weight: 700;
           letter-spacing: 0.8px; text-transform: uppercase;
-          color: #9ca3af; margin-bottom: 5px;
+          color: black; margin-bottom: 5px;
         }
         .shf-input {
           width: 100%; padding: 11px 14px;
           border: 1.5px solid #e5e7eb; border-radius: 10px;
-          font-size: 14px; color: #111827; background: #f9fafb;
+          font-size: 14px; color: #0d0e11; background: #f9fafb;
           outline: none; font-family: 'Outfit', sans-serif;
           transition: border-color 0.2s, box-shadow 0.2s;
           box-sizing: border-box;
@@ -154,10 +154,10 @@ export default function SkinHeroForm() {
         .shf-field { margin-bottom: 14px; }
 
         .shf-terms {
-          font-size: 11px; color: #9ca3af;
+          font-size: 11px; color: #000000;
           text-align: center; margin-bottom: 14px; line-height: 1.5;
         }
-        .shf-terms a { color: #6d5b8f; text-decoration: underline; }
+        .shf-terms a { color: #000000; text-decoration: underline; }
 
         .shf-success {
           margin-bottom: 16px; padding: 12px 16px;
@@ -224,7 +224,7 @@ export default function SkinHeroForm() {
               By submitting, you agree to our <a href="#">Terms of Service</a> &amp; <a href="#">Privacy Policy</a>.
             </p>
             <button type="submit" className="shf-submit" disabled={!canSubmit || loading}>
-              {loading ? "Submitting..." : "Book Free Consultation →"}
+              {loading ? "Submitting..." : "Book Your Consultation →"}
             </button>
           </form>
         </div>

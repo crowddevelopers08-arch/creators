@@ -49,17 +49,17 @@ const CARDS = [
     tagBorder: "rgba(155,136,194,0.35)",
     image: "/BA-Template-3-5.jpg",
   },
-  {
-    id: 5,
-    tag: "Pigmentation",
-    name: "Q-Switch",
-    desc: "Targeted laser energy breaks down stubborn melanin clusters to clear dark spots, melasma, and sun damage.",
-    stat: "3–5 sessions for full clarity",
-    tagColor: "#d95f76",
-    tagBg: "rgba(217,95,118,0.12)",
-    tagBorder: "rgba(217,95,118,0.35)",
-    image: "/Pigmentation.jpg",
-  },
+  // {
+  //   id: 5,
+  //   tag: "Pigmentation",
+  //   name: "Q-Switch",
+  //   desc: "Targeted laser energy breaks down stubborn melanin clusters to clear dark spots, melasma, and sun damage.",
+  //   stat: "3–5 sessions for full clarity",
+  //   tagColor: "#d95f76",
+  //   tagBg: "rgba(217,95,118,0.12)",
+  //   tagBorder: "rgba(217,95,118,0.35)",
+  //   image: "/Pigmentation.jpg",
+  // },
 ];
 
 export default function BeforeAfterSection() {
