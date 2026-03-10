@@ -33,7 +33,7 @@ const testimonials = [
   },
   {
     id: 4,
-    text: "I took the 4-session Laser Hair Removal package and I'm never going back to waxing. The team was professional, it was barely painful, and the results are exactly what I was promised. Highly recommend the Creator Aesthetic Clinic.",
+    text: "I took the 4-session Laser Hair Removal package and I'm never going back to waxing. The team was professional, it was barely painful, and the results are exactly what I was promised. Highly recommend the Creator Aethetic Clinic.",
     name: "Priya K",
     treatment: "Laser Hair Removal",
     initial: "P",
@@ -216,7 +216,7 @@ export default function TestimonialsSection() {
               They Left Glowing.
             </h2>
             <p style={{ fontSize:"15px", color:"rgba(0,0,0,0.5)", maxWidth:"480px", margin:"0 auto", lineHeight:1.7, fontWeight:400 }}>
-              These are the words of real patients from Creator Aesthetic Clinic, ECR.
+              These are the words of real patients from Creator Aethetic Clinic, ECR.
             </p>
           </div>
           </FadeIn>

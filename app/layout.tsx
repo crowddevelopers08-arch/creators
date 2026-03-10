@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Creator Aesthetic Clinic",
+  title: "Creator Aethetic Clinic",
   description: "Leading Skin Clinic in India | CrowMedi",
 };
 

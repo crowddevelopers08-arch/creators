@@ -307,7 +307,7 @@ export default function DoctorSection() {
                 fontWeight: 400,
               }}
             >
-              Behind every hair transformation at Creator Aesthetic Clinic is a doctor who takes hair loss personally because she understands the confidence it costs you.
+              Behind every hair transformation at Creator Aethetic Clinic is a doctor who takes hair loss personally because she understands the confidence it costs you.
             </p>
           </div>
           </FadeIn>
@@ -334,7 +334,7 @@ export default function DoctorSection() {
                   lineHeight: 1.2,
                 }}
               >
-                Why Choose Creator Aesthetic Clinic
+                Why Choose Creator Aethetic Clinic
               </h3>
             </div>
             <p
@@ -391,7 +391,7 @@ export default function DoctorSection() {
                 >
                   <Image
                     src="/creatdoc.png"
-                    alt="Dr. Sai — Creator Aesthetic Clinic"
+                    alt="Dr. Sai — Creator Aethetic Clinic"
                     fill
                     style={{ objectFit: "cover", objectPosition: "top" }}
                   />
@@ -476,7 +476,7 @@ export default function DoctorSection() {
                   lineHeight: 1.25, marginBottom: "8px",
                 }}
               >
-                Creator Aesthetic Clinic Philosophy
+                Creator Aethetic Clinic Philosophy
               </h3>
               <p
                 style={{

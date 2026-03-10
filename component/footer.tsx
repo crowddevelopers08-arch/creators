@@ -90,7 +90,7 @@ export default function VisitSection() {
               <div className="vs-line-r" />
             </div>
             <h2 style={{fontFamily:"'Playfair Display',Georgia,serif",fontSize: "clamp(32px,5vw,48px)", fontWeight: 700,color:"#111",lineHeight:1.2,margin:"0 0 0px",letterSpacing:"-0.3px"}}>
-              Visit Creator Aesthetic Clinic,
+              Visit Creator Aethetic Clinic,
             </h2>
             <h2 className="vs-teal" style={{fontSize:"clamp(20px,3.5vw,42px)",lineHeight:1.25,margin:"0 0 8px"}}>
               Vettuvankeni, ECR.
@@ -177,12 +177,12 @@ export default function VisitSection() {
 
                 {/* IMAGE 1 — tall left, big top-left radius */}
                 <div className="vs-img1 absolute overflow-hidden" style={{top:0,left:0,width:"56%",height:"100%",borderRadius:"100px 20px 20px 20px",boxShadow:"0 20px 56px rgba(0,0,0,0.14)",zIndex:2}}>
-                  <img src="/image.png" alt="Creator Aesthetic Clinic" style={{width:"100%",height:"100%",objectFit:"cover",objectPosition:"top center"}} />
+                  <img src="/image.png" alt="Creator Aethetic Clinic" style={{width:"100%",height:"100%",objectFit:"cover",objectPosition:"top center"}} />
                   <div className="absolute inset-0" style={{background:"linear-gradient(to top,rgba(0,0,0,0.45) 0%,transparent 50%)"}} />
                   <div className="absolute bottom-4 left-3 right-3">
                     <div className="flex items-center gap-2 px-3 py-2 rounded-xl" style={{background:"rgba(255,255,255,0.96)",backdropFilter:"blur(10px)"}}>
                       <span className="vs-dot vs-dot-green" />
-                      <span style={{fontSize:"10px",fontWeight:700,color:"#111"}}>Creator Aesthetic Clinic</span>
+                      <span style={{fontSize:"10px",fontWeight:700,color:"#111"}}>Creator Aethetic Clinic</span>
                     </div>
                   </div>
                 </div>
@@ -211,7 +211,7 @@ export default function VisitSection() {
                 <div className="flex items-center gap-3">
                   <div style={{width:"3px",height:"28px",background:"linear-gradient(to bottom,#6d5b8f,#ec778d)",borderRadius:"2px"}} />
                   <div>
-                    <div style={{fontSize:"13px",fontWeight:700,color:"#111",fontFamily:"'Playfair Display',Georgia,serif"}}>Creator Aesthetic Clinic</div>
+                    <div style={{fontSize:"13px",fontWeight:700,color:"#111",fontFamily:"'Playfair Display',Georgia,serif"}}>Creator Aethetic Clinic</div>
                     <div style={{fontSize:"11px",color:"rgba(0,0,0,0.4)"}}>Vettuvankeni, ECR, Chennai</div>
                   </div>
                 </div>
@@ -232,7 +232,7 @@ export default function VisitSection() {
                   style={{border:0,display:"block"}}
                   allowFullScreen loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="Creator Aesthetic Clinic — Vettuvankeni ECR Chennai"
+                  title="Creator Aethetic Clinic — Vettuvankeni ECR Chennai"
                 />
               </div>
 

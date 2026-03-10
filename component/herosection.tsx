@@ -110,7 +110,7 @@ const TRUST_BADGES = [
     ),
   },
   {
-    text: "ECR's Premier Aesthetic Clinic",
+    text: "ECR's Premier Aethetic Clinic",
     svg: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
         <path d="M6 9H4.5a2.5 2.5 0 010-5C7 4 12 2 12 2s5 2 7.5 2a2.5 2.5 0 010 5H18"/>
@@ -457,7 +457,7 @@ export default function SkinHeroSection() {
               <div>
                 <span className="sh-tagline">
                   <span className="sh-dot" />
-                  Doctor-Led Aesthetic Clinic
+                  Doctor-Led Aethetic Clinic
                   <span style={{ color: "rgba(109,91,143,0.7)", fontWeight: 800 }}>·</span>
                   ECR Chennai
                 </span>

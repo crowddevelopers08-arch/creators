@@ -28,7 +28,7 @@ export default function Footerred() {
               backgroundClip: "text",
             }}
           >
-            Creator Aesthetic Clinic
+            Creator Aethetic Clinic
           </span>
           <span style={{ color: "rgba(255,255,255,0.15)", fontSize: "10px" }}>|</span>
           <p className="text-[12px]" style={{ color: "rgba(255,255,255,0.35)", fontFamily: "Outfit, sans-serif" }}>

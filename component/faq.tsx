@@ -6,7 +6,7 @@ const faqs = [
   {
     id: 1,
     q: "Are these treatments safe for Indian skin tones?",
-    a: "Yes. All treatments at Creator Aesthetic Clinic are selected and calibrated specifically for Indian skin types (Fitzpatrick III–V). Dr. Sai customises every treatment protocol for your skin tone, concerns, and goals.",
+    a: "Yes. All treatments at Creator Aethetic Clinic are selected and calibrated specifically for Indian skin types (Fitzpatrick III–V). Dr. Sai customises every treatment protocol for your skin tone, concerns, and goals.",
     category: "Safety",
   },
   {
@@ -42,7 +42,7 @@ const faqs = [
   {
     id: 7,
     q: "Where is the clinic located?",
-    a: "Creator Aesthetic Clinic is located at First Floor, No. 6A, East Coast Road, Rajendra Garden, Vettuvankeni, Chennai — 600115. Easily accessible from ECR, Adyar, OMR, and South Chennai.",
+    a: "Creator Aethetic Clinic is located at First Floor, No. 6A, East Coast Road, Rajendra Garden, Vettuvankeni, Chennai — 600115. Easily accessible from ECR, Adyar, OMR, and South Chennai.",
     category: "Clinic",
   },
   {

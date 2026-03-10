@@ -141,7 +141,7 @@ export default function ThankYouPage() {
               Dr. Sai Will Be in Touch.
             </h2>
             <p style={{ fontSize:"16px", color:"rgba(255, 255, 255, 0.5)", lineHeight:1.8, fontWeight:400, maxWidth:"460px", margin:"0 auto" }}>
-              Your consultation request has been received. A member of the Creator Aesthetic Clinic team will contact you shortly to confirm your appointment.
+              Your consultation request has been received. A member of the Creator Aethetic Clinic team will contact you shortly to confirm your appointment.
             </p>
           </div>
 
@@ -219,7 +219,7 @@ export default function ThankYouPage() {
                 </div>
                 <div className="text-left">
                   <div style={{ fontSize:"14px", fontWeight:700, color:"#fff", fontFamily:"'Playfair Display',Georgia,serif" }}>Dr. Sai</div>
-                  <div style={{ fontSize:"12px", color:"rgba(255, 255, 255, 0.45)" }}>Creator Aesthetic Clinic, ECR, Chennai</div>
+                  <div style={{ fontSize:"12px", color:"rgba(255, 255, 255, 0.45)" }}>Creator Aethetic Clinic, ECR, Chennai</div>
                 </div>
               </div>
               <div className="flex items-center gap-2 px-4 py-2 rounded-full" style={{ background:"rgba(52,211,153,0.08)", border:"1px solid rgba(52,211,153,0.2)" }}>
@@ -235,7 +235,7 @@ export default function ThankYouPage() {
               Back to Home
             </a>
             <p style={{ fontSize:"12px", color:"rgba(255, 255, 255, 0.3)", marginTop:"16px" }}>
-              Creator Aesthetic Clinic · ECR, Chennai
+              Creator Aethetic Clinic · ECR, Chennai
             </p>
           </div>
 

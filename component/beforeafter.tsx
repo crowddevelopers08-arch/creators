@@ -164,7 +164,7 @@ export default function BeforeAfterSection() {
               Radiant, Confident Skin.
             </h2>
             <p style={{ fontSize:"15px", color:"rgba(0,0,0,0.5)", maxWidth:"720px", margin:"0 auto", lineHeight:1.7, fontWeight:400 }}>
-              Each treatment below is performed under the direct supervision of Dr. Sai at Creator Aesthetic Clinic, ECR - where medical precision meets aesthetic artistry
+              Each treatment below is performed under the direct supervision of Dr. Sai at Creator Aethetic Clinic, ECR - where medical precision meets Aethetic artistry
             </p>
           </div>
           </FadeIn>

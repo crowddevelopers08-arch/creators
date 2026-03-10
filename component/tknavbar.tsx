@@ -38,8 +38,8 @@ export default function Navbars() {
             <Link href="/" className="flex items-center flex-shrink-0">
               <div className="relative" style={{ width: "130px", height: "44px" }}>
                 <Image
-                  src="/Creator-Aesthetic-logo.png"
-                  alt="Creator Aesthetic Clinic"
+                  src="/Creator-Aethetic-logo.png"
+                  alt="Creator Aethetic Clinic"
                   fill
                   style={{ objectFit: "contain", objectPosition: "left center" }}
                   priority
