@@ -159,7 +159,7 @@ export default function VisitSection() {
                     </div>
                     <div>
                       <div style={{fontSize:"10px",fontWeight:600,color:"rgba(0,0,0,0.35)",letterSpacing:"1.8px",textTransform:"uppercase",marginBottom:"2px"}}>Phone</div>
-                      <div style={{fontSize:"13px",fontWeight:600,color:"#111"}}>+91 98765 43210</div>
+                      <div style={{fontSize:"13px",fontWeight:600,color:"#111"}}>+91 63850 83099</div>
                     </div>
                   </div>
                 </div>

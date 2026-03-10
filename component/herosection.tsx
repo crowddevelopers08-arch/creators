@@ -77,7 +77,7 @@ const BG_IMAGES = [
 
 const TRUST_BADGES = [
   {
-    text: "FDA Approved Machines",
+    text: "US-FDA Approved Machines",
     svg: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
         <path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z" fill="currentColor" stroke="none" opacity="0.15"/>
