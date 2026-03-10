@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import FadeIn from "./scrollanimate";
 
 const treatments = [
@@ -163,6 +163,20 @@ function ContactForm() {
 export default function SkinTreatments() {
   const [active, setActive] = useState("red-light");
   const current = treatments.find((t) => t.id === active) ?? treatments[0];
+  const activeIndex = treatments.findIndex((t) => t.id === active);
+  const tabsScrollRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const container = tabsScrollRef.current;
+    if (!container) return;
+    const activeBtn = container.querySelector<HTMLButtonElement>(".sk-tab.active");
+    if (activeBtn) {
+      activeBtn.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+    }
+  }, [active]);
+
+  const goPrev = () => { if (activeIndex > 0) setActive(treatments[activeIndex - 1].id); };
+  const goNext = () => { if (activeIndex < treatments.length - 1) setActive(treatments[activeIndex + 1].id); };
 
   return (
     <>
@@ -270,6 +284,34 @@ export default function SkinTreatments() {
           }
           .sk-img-wrap { min-height: 220px; }
         }
+
+        .sk-arrow {
+          display: none;
+          flex-shrink: 0;
+          width: 34px; height: 34px;
+          border-radius: 50%;
+          border: 1.5px solid rgba(255,255,255,0.14);
+          background: rgba(255,255,255,0.05);
+          color: white;
+          cursor: pointer;
+          align-items: center; justify-content: center;
+          transition: background 0.2s, border-color 0.2s;
+        }
+        .sk-arrow:hover:not(:disabled) {
+          background: rgba(109,91,143,0.25);
+          border-color: rgba(109,91,143,0.5);
+        }
+        .sk-arrow:disabled { opacity: 0.28; cursor: default; }
+
+        @media (max-width: 640px) {
+          .sk-arrow { display: flex; }
+          .sk-tabs-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+          }
+          .sk-tabs-scroll { margin-bottom: 0; flex: 1; }
+        }
       `}</style>
 
       <section id="skin-treatments" className="sk-root" style={{ background: "#080808", padding: "60px 16px" }}>
@@ -299,24 +341,40 @@ export default function SkinTreatments() {
 
           {/* ── Tabs (horizontal scroll on mobile) ── */}
           <FadeIn direction="up" delay={150}>
-          <div className="sk-tabs-scroll">
-            {treatments.map((t) => (
-              <button
-                key={t.id}
-                onClick={() => setActive(t.id)}
-                className={`sk-tab${active === t.id ? " active" : ""}`}
-              >
-                <span style={{ display: "block", fontSize: 10, fontWeight: 700, letterSpacing: "0.25em", textTransform: "uppercase", marginBottom: 3, color: active === t.id ? "#6d5b8f" : "rgba(255,255,255,0.25)" }}>
-                  {t.number}
-                </span>
-                <span style={{ display: "block", fontSize: 13, fontWeight: 600, lineHeight: 1.35, color: active === t.id ? "#fff" : "rgba(255,255,255,0.48)" }}>
-                  {t.name}
-                </span>
-                <span style={{ display: "block", fontSize: 10, fontWeight: 500, letterSpacing: "0.2em", textTransform: "uppercase", marginTop: 3, color: active === t.id ? "rgba(109,91,143,0.75)" : "rgba(255,255,255,0.18)" }}>
-                  {t.tag}
-                </span>
-              </button>
-            ))}
+          <div className="sk-tabs-row" style={{ marginBottom: 24 }}>
+            {/* Left arrow — mobile only */}
+            <button className="sk-arrow" onClick={goPrev} disabled={activeIndex === 0} aria-label="Previous treatment">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                <path d="M15 18l-6-6 6-6" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </button>
+
+            <div className="sk-tabs-scroll" ref={tabsScrollRef}>
+              {treatments.map((t) => (
+                <button
+                  key={t.id}
+                  onClick={() => setActive(t.id)}
+                  className={`sk-tab${active === t.id ? " active" : ""}`}
+                >
+                  <span style={{ display: "block", fontSize: 10, fontWeight: 700, letterSpacing: "0.25em", textTransform: "uppercase", marginBottom: 3, color: active === t.id ? "#6d5b8f" : "rgba(255,255,255,0.25)" }}>
+                    {t.number}
+                  </span>
+                  <span style={{ display: "block", fontSize: 13, fontWeight: 600, lineHeight: 1.35, color: active === t.id ? "#fff" : "rgba(255,255,255,0.48)" }}>
+                    {t.name}
+                  </span>
+                  <span style={{ display: "block", fontSize: 10, fontWeight: 500, letterSpacing: "0.2em", textTransform: "uppercase", marginTop: 3, color: active === t.id ? "rgba(109,91,143,0.75)" : "rgba(255,255,255,0.18)" }}>
+                    {t.tag}
+                  </span>
+                </button>
+              ))}
+            </div>
+
+            {/* Right arrow — mobile only */}
+            <button className="sk-arrow" onClick={goNext} disabled={activeIndex === treatments.length - 1} aria-label="Next treatment">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                <path d="M9 18l6-6-6-6" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </button>
           </div>
           </FadeIn>
 
