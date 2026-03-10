@@ -12,6 +12,7 @@ import VisitSection from "@/component/footer";
 import Footerred from "@/component/endfooter";
 import Treatments from "@/component/treatments";
 import MobileActionBar from "@/component/mobile-bar";
+import ScrollToTop from "@/component/scrolltotop";
 
 export default function Home() {
   return (
@@ -29,6 +30,7 @@ export default function Home() {
       <Footerred />
     
       <MobileActionBar />
+      <ScrollToTop />
     </div>
   );
 }
