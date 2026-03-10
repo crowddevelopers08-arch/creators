@@ -30,7 +30,7 @@ const CARDS = [
   {
     id: 3,
     tag: "Acne & Scars",
-    name: "Carbon Peel",
+    name: "Chemical Peel",
     desc: "Hollywood peel that deep-cleanses pores, reduces active acne, and significantly lightens post-acne marks.",
     stat: "Zero downtime treatment",
     tagColor: "#f2a0b5",
